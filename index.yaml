@@ -1,0 +1,12 @@
+apiVersion: v1
+entries:
+  qe-quarkus-app:
+  - apiVersion: v1
+    created: "2020-11-23T09:23:28.082845449+01:00"
+    description: Common QE chart building components and helpers
+    digest: a1797d45f77598437ad1425d0b554d13f41326b652b6e25eb3e7d8000750185f
+    name: qe-quarkus-app
+    urls:
+    - https://pjgg.github.io/helm-charts-parent/qe-quarkus-app-0.0.1.tgz
+    version: 0.0.1
+generated: "2020-11-23T09:23:28.082487956+01:00"

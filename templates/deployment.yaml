@@ -1,0 +1,48 @@
+{{- if .Values.deployment}}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+  labels:
+    app: "{{ .Release.Name }}"
+    chart: "{{ template "common.chart" . }}"
+    release: {{ .Release.Name | quote }}
+    heritage: {{ .Release.Service | quote }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      name: {{ .Values.deployment.name }}
+  template:
+    metadata:
+      labels:
+        name: {{ .Values.deployment.name }}
+        app: {{ .Values.deployment.name }}
+        release: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.deployment.image.repository }}:{{ .Values.deployment.image.tag | default "latest" }}"
+          imagePullPolicy: {{ .Values.deployment.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.service.internalPort }}
+          env:
+            {{- range .Values.deployment.env }}
+            - name: {{ .name}}
+              value: {{.value}}
+            {{- end }}
+          livenessProbe:
+            httpGet:
+              path: /health/live
+              port: {{ .Values.service.internalPort }}
+          readinessProbe:
+            httpGet:
+              path: /health/ready
+              port: {{ .Values.service.internalPort }}
+          resources:
+  {{ toYaml .Values.resources | indent 12 }}
+  {{- if .Values.nodeSelector }}
+nodeSelector:
+  {{ toYaml .Values.nodeSelector | indent 8 }}
+    {{- end }}
+{{- end }}
