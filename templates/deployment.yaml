@@ -33,14 +33,29 @@ spec:
             {{- end }}
           livenessProbe:
             httpGet:
-              path: /health/live
+              path: {{ .Values.deployment.livenessProbe | default "/health/live" }} 
               port: {{ .Values.service.internalPort }}
           readinessProbe:
             httpGet:
-              path: /health/ready
+              path: {{ .Values.deployment.readinessProbe | default "/health/ready" }}
               port: {{ .Values.service.internalPort }}
+          {{- if .Values.resources }}
           resources:
-  {{ toYaml .Values.resources | indent 12 }}
+            requests:
+              memory: {{ .Values.resources.requests.memory}}
+              cpu: {{ .Values.resources.requests.cpu}}
+            limits:
+              memory: {{ .Values.resources.limits.memory}}
+              cpu: {{ .Values.resources.limits.cpu}}
+          {{else}}
+          resources:
+            requests:
+              memory: "50Mi"
+              cpu: "100m"
+            limits:
+              memory: "300Mi"
+              cpu: "200m"
+          {{- end }}
   {{- if .Values.nodeSelector }}
 nodeSelector:
   {{ toYaml .Values.nodeSelector | indent 8 }}
