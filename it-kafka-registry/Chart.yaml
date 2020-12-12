@@ -1,0 +1,4 @@
+apiVersion: v1
+name: it-kafka-registry
+description: Integration test Kafka registry resources
+version: 0.0.1

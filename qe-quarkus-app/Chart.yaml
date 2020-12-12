@@ -1,0 +1,4 @@
+apiVersion: v1
+name: qe-quarkus-app
+description: Common QE chart building components and helpers
+version: 0.0.3
