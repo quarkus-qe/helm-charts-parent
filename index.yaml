@@ -1,20 +1,55 @@
 apiVersion: v1
 entries:
+  it-kafka-registry:
+  - apiVersion: v1
+    created: "2020-12-13T17:23:39.548965474+01:00"
+    description: Integration test Kafka registry resources
+    digest: af63d6c2d9c7614778e08ece6bd01bdc92f0039fb4e2a45c063d26b6b77b24ee
+    name: it-kafka-registry
+    urls:
+    - https://quarkus-qe.github.io/helm-charts-parent/releases/it-kafka-registry-0.0.1.tgz
+    version: 0.0.1
+  it-kafka-strimzi:
+  - apiVersion: v1
+    created: "2020-12-13T17:23:39.549326877+01:00"
+    description: Integration test Kafka resources
+    digest: 17e6ac295d93a9f1106c4a0ed2d406d814c25a29f5850f96fe0336967a7996a6
+    name: it-kafka-strimzi
+    urls:
+    - https://quarkus-qe.github.io/helm-charts-parent/releases/it-kafka-strimzi-0.0.1.tgz
+    version: 0.0.1
+  it-kafka-zookeper:
+  - apiVersion: v1
+    created: "2020-12-13T17:23:39.54948932+01:00"
+    description: Integration test Kafka zookeper resources
+    digest: c93c495dd835e3736e4ee31993ebeb8d7d53615905f7d1a2ff38af5cc051ea28
+    name: it-kafka-zookeper
+    urls:
+    - https://quarkus-qe.github.io/helm-charts-parent/releases/it-kafka-zookeper-0.0.1.tgz
+    version: 0.0.1
   qe-quarkus-app:
   - apiVersion: v1
-    created: "2020-12-09T12:09:11.221962161+01:00"
+    created: "2020-12-13T17:23:39.55000384+01:00"
     description: Common QE chart building components and helpers
-    digest: 6916cd143a8c871d0ca8c097e08d6d92727c90753a445f567719b8f5f941d811
+    digest: f3aba6ccaf4d53b50203512c4a6a04df7b34b93b510243a10c8ee5028732623d
     name: qe-quarkus-app
     urls:
-    - https://pjgg.github.io/helm-charts-parent/qe-quarkus-app-0.0.2.tgz
+    - https://quarkus-qe.github.io/helm-charts-parent/releases/qe-quarkus-app-0.0.3.tgz
+    version: 0.0.3
+  - apiVersion: v1
+    created: "2020-12-13T17:23:39.549850916+01:00"
+    description: Common QE chart building components and helpers
+    digest: b7a838b10969f913974fefce1a29e3d021cabffbbf34f34833d8468280847718
+    name: qe-quarkus-app
+    urls:
+    - https://quarkus-qe.github.io/helm-charts-parent/releases/qe-quarkus-app-0.0.2.tgz
     version: 0.0.2
   - apiVersion: v1
-    created: "2020-12-09T12:09:11.221712036+01:00"
+    created: "2020-12-13T17:23:39.54970313+01:00"
     description: Common QE chart building components and helpers
     digest: a1797d45f77598437ad1425d0b554d13f41326b652b6e25eb3e7d8000750185f
     name: qe-quarkus-app
     urls:
-    - https://pjgg.github.io/helm-charts-parent/qe-quarkus-app-0.0.1.tgz
+    - https://quarkus-qe.github.io/helm-charts-parent/releases/qe-quarkus-app-0.0.1.tgz
     version: 0.0.1
-generated: "2020-12-09T12:09:11.221408381+01:00"
+generated: "2020-12-13T17:23:39.548672222+01:00"

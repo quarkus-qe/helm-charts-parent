@@ -1,0 +1,16 @@
+# Default values for commons.
+# This is a YAML-formatted file.
+# Declare name/value pairs to be passed into your templates.
+
+name: it-kafka-zookeper
+image:
+  registry: quay.io
+  repository: debezium/zookeeper
+  tag: latest
+  pullPolicy: IfNotPresent
+
+## Service parameters
+##
+service:
+  name: it-kafka-zookeper
+  internalPort: 2181

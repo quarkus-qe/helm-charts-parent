@@ -1,0 +1,4 @@
+apiVersion: v1
+name: it-kafka-zookeper
+description: Integration test Kafka zookeper resources
+version: 0.0.1

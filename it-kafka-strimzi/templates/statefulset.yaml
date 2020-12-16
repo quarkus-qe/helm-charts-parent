@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ .Values.name }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Values.name }}
+  serviceName: {{ .Values.name }}
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.name }}
+        io.kompose.service: {{ .Values.name }}
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+        - name: {{ .Values.name }}
+          image: {{ printf "%s/%s:%s" .Values.image.registry .Values.image.repository .Values.image.tag}}
+          imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
+          command: [ "/bin/sh" ]
+          args: [ "-c", "bin/kafka-server-start.sh config/server.properties --override listeners=$${KAFKA_LISTENERS} --override advertised.listeners=$${KAFKA_ADVERTISED_LISTENERS} --override zookeeper.connect=$${KAFKA_ZOOKEEPER_CONNECT}" ]
+          env:
+            {{- range .Values.env }}
+            - name: {{ .name}}
+              value: {{.value}}
+            {{- end }}
+          ports:
+            - containerPort: {{ .Values.service.internalPort }}
+          resources: {}

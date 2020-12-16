@@ -1,10 +1,10 @@
 # QE Commons Charts
 
-This project is a parent chart, that allows us to share Helm charts templates between several projects. 
+This project is a common charts, that allows us to share Helm charts templates between several projects. 
 
 ## How to use it
 
-According Helm [documentation](https://v2.helm.sh/docs/developing_charts/#chart-dependencies), a Chart could depends on other chart, so lets do that!. Lets use this project as a parent Chart, for global openshift resource object configuration, and a project chart to define his particular requiriments and optionally be able to overwrite any global tempalte.  
+Chart: `qe-quarkus-app`  
 
 Example: 
 
@@ -27,7 +27,7 @@ $ helm repo add qe-quarkus http://quarkus-qe.github.io/helm-charts-parent
 ```
 ## How to push a new parent Chart Release
 
-Once you finish with your changes, upgrade your chart [version](https://github.com/quarkus-qe/helm-charts-parent/blob/main/Chart.yaml#L4) and then package your chart and index it with the following command:
+Once you finish with your changes, upgrade your chart by running the following command:
 
 ```bash
 $ make release
